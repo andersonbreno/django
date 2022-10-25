@@ -11,7 +11,8 @@ class Post(models.Model):
     )
     title = models.CharField(max_length=200)
     body = models.TextField()
-    # slug = models.SlugField()
+    #slug = models.SlugField(unique=True, null=True)
+    slug = models.SlugField(max_length=200)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True) #ao adicionar o post é criada uma data no banco.
     updated_at = models.DateField(auto_now=True) # sempre que o post/item for salvo a data é atualizada automáticamente.
